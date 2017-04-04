@@ -1,5 +1,3 @@
-console.log("testing")
-
 // Write a function named stringy that takes a size and returns a string of alternating '1s' and '0s'. The string should start with a 1. A string with size 6 should return :'101010'. With size 4 should return : '1010'. With size 12 should return : '101010101010'. The size will always be positive and will only use whole numbers.
 
 
@@ -86,3 +84,28 @@ function checkCoupon(coupdate) {
 }
 //calling the function and passing it in a date on a coupon
 console.log(checkCoupon("April 4, 2017"))
+
+// Optional Challenge:
+// Write a function to test whether a given input is a valid email address. For the purposes of this assessment, here is what makes a valid email: At least one letter character at the beginning All characters between the first character and the @ (if any) must be letters, numbers, or underscores There must be an @ character (after the points listed just now) After the @ character, there must be at least one word character (letter, number, or underscore) or hyphen The email must end with at least one set of a dot followed by one or more word characters. The input must NOT be case-sensitive The function should return true or false.
+
+var email = document.querySelector('#email')
+var button = document.querySelector('#button')
+var checking = function (emailone) {
+  var emailforreal = email.value.toLowerCase()
+  var emailray = emailforreal.split('')
+  console.log(emailray)
+  for(var i = 0; i <= emailray.length; i++){
+    var atsymbol = emailray.indexOf('@')
+    if (atsymbol === -1) {
+       return false
+    } else if (i === 0){
+      emailray[i]
+    } 
+  }
+
+}
+
+button.addEventListener("click", function () {
+  console.log(checking(email.value))
+
+})
