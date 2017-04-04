@@ -17,9 +17,10 @@ function stringy (size) {
       numb.push('1')
     }
   }
-  //returning numb to the function
+  //joining the numbers in the array into a string
   var numbstring = numb.join('')
   return numbstring
+  //returning numb to the function
 
 }
 
@@ -32,8 +33,9 @@ console.log(stringy('iwantcake'))
 var reverse = function (numby) {
   //need to turn the number being passed in into a string of digits
   var stringnumby = numby.toString()
-  //need to split up each digit then reverse the digits
+  //need to split up each digit using .split which splits the string into an array of digits then  using .reverse to reverse the digits then put the digits back together with .join
   var reversenumby = stringnumby.split("").reverse().join('')
+
   return reversenumby
 }
 //calling the function and passing in a number and printing it out
@@ -42,20 +44,45 @@ console.log(reverse(888777632541))
 //Fibonacci number is the sum of the previous two sequence numbers. Below is an example of the sequence 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, … Notice the sequence pattern is the sum of the previous two numbers?
 // Build a function to illustrate how to get this sequence to output. If you don’t know where to begin start with pseudo code to work through the steps
 
-var fibonacci = function () {
+var fibonacci = function (whatever) {
   var fibs = []
-  for(var i = 0; i < 10; i++){
+  for(var i = 0; i < whatever; i++){
     if (i === 0){
       fibs.push(0)
+      //pushes 0 to array called fibs
     } else if (i === 1) {
       fibs.push(1)
+      //pushes 1 to the array called fibs
     }
      else if(i >= 2){
-      fibs.push(fibs[i-1] + fibs[i])
+      fibs.push(fibs[i-1] + fibs[i-2])
+         //gets the value of the previous index and adds it to the value of the previous previous index and pushes that to the array called fibs
     }
 
   }
   return fibs
+  //returns array to function
 }
+//calling function and passing it the number of indexes I want it to log
+console.log(fibonacci(20))
 
-console.log(fibonacci())
+
+// Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons. Write a function called checkCoupon to verify that a coupon is valid and not expired. If the coupon is good, return true. Otherwise, return false. A coupon expires at the END of the expiration date. All dates will be passed in as strings in this format: "June 15, 2014"
+
+function checkCoupon(coupdate) {
+  var date = new Date(coupdate)
+  //setting coupon date
+  var expireday = new Date
+  //setting the expiration date to today
+  expireday.setHours(0,0,0,0)
+  //setting the time of expiration date to midnight
+  if (date >= expireday){
+    //comparing date on coupon to expiration date if date on coupon is greater or equal to today' date then the coupon is good
+    return true
+  } else {
+    //if the date on the coupon is before today's date then it is expired
+    return false
+  }
+}
+//calling the function and passing it in a date on a coupon
+console.log(checkCoupon("April 4, 2017"))
